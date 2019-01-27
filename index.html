@@ -1,0 +1,23 @@
+<html>
+
+<body>
+    <button id="01" class="btn">겟1</button>
+    <button id="02" class="btn">겟2</button>
+    <br />
+    <span id="message">메시지가 나올까?ㅋ</span>
+</body>
+
+<script src="jquery.min.js"></script>
+<script>
+    function ajaxGet(id) {
+        $.get("http://localhost:1323/ping", function (data, status) {
+            // console.log(data)
+            // alert("Data: " + data.message + "\nStatus: " + status)
+            $("#message").text(data.message + " / " + id)
+        })
+    }
+
+    $(".btn").click(function () { ajaxGet($(this).attr('id')) })
+</script>
+
+</html>
